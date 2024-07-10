@@ -1,0 +1,304 @@
+
+Q6.elf:     file format elf32-avr
+
+Sections:
+Idx Name          Size      VMA       LMA       File off  Algn
+  0 .text         0000006c  00000000  00000000  00000074  2**1
+                  CONTENTS, ALLOC, LOAD, READONLY, CODE
+  1 .data         00000000  00800060  00800060  000001e0  2**0
+                  ALLOC, LOAD, DATA
+  2 .comment      0000002f  00000000  00000000  000001e0  2**0
+                  CONTENTS, READONLY
+  3 .stack.descriptors.hdr 0000001c  00000000  00000000  0000020f  2**0
+                  CONTENTS, READONLY
+  4 .debug_aranges 00000050  00000000  00000000  0000022b  2**0
+                  CONTENTS, READONLY, DEBUGGING
+  5 .debug_info   00000a5e  00000000  00000000  0000027b  2**0
+                  CONTENTS, READONLY, DEBUGGING
+  6 .debug_abbrev 000005bc  00000000  00000000  00000cd9  2**0
+                  CONTENTS, READONLY, DEBUGGING
+  7 .debug_line   00000324  00000000  00000000  00001295  2**0
+                  CONTENTS, READONLY, DEBUGGING
+  8 .debug_frame  00000068  00000000  00000000  000015bc  2**2
+                  CONTENTS, READONLY, DEBUGGING
+  9 .debug_str    000001ae  00000000  00000000  00001624  2**0
+                  CONTENTS, READONLY, DEBUGGING
+ 10 .debug_loc    00000094  00000000  00000000  000017d2  2**0
+                  CONTENTS, READONLY, DEBUGGING
+ 11 .debug_ranges 00000030  00000000  00000000  00001866  2**0
+                  CONTENTS, READONLY, DEBUGGING
+ 12 .text         00000004  0000015e  0000015e  000001d2  2**1
+                  CONTENTS, ALLOC, LOAD, READONLY, CODE
+ 13 .note.gnu.avr.deviceinfo 0000003c  00000000  00000000  00001898  2**2
+                  CONTENTS, READONLY, DEBUGGING
+ 14 .text.ADC_inti 0000001a  0000012e  0000012e  000001a2  2**1
+                  CONTENTS, ALLOC, LOAD, READONLY, CODE
+ 15 .text.ADC_read_10bit 0000001c  00000112  00000112  00000186  2**1
+                  CONTENTS, ALLOC, LOAD, READONLY, CODE
+ 16 .text.main    0000007e  0000006c  0000006c  000000e0  2**1
+                  CONTENTS, ALLOC, LOAD, READONLY, CODE
+ 17 .text.libgcc.div 00000028  000000ea  000000ea  0000015e  2**1
+                  CONTENTS, ALLOC, LOAD, READONLY, CODE
+ 18 .text.__dummy_fini 00000002  00000166  00000166  000001da  2**1
+                  CONTENTS, ALLOC, LOAD, READONLY, CODE
+ 19 .text.__dummy_funcs_on_exit 00000002  00000168  00000168  000001dc  2**1
+                  CONTENTS, ALLOC, LOAD, READONLY, CODE
+ 20 .text.__dummy_simulator_exit 00000002  0000016a  0000016a  000001de  2**1
+                  CONTENTS, ALLOC, LOAD, READONLY, CODE
+ 21 .text.exit    00000016  00000148  00000148  000001bc  2**1
+                  CONTENTS, ALLOC, LOAD, READONLY, CODE
+ 22 .text._Exit   00000004  00000162  00000162  000001d6  2**1
+                  CONTENTS, ALLOC, LOAD, READONLY, CODE
+
+Disassembly of section .text:
+
+00000000 <__vectors>:
+   0:	0c 94 2a 00 	jmp	0x54	; 0x54 <__ctors_end>
+   4:	0c 94 af 00 	jmp	0x15e	; 0x15e <__bad_interrupt>
+   8:	0c 94 af 00 	jmp	0x15e	; 0x15e <__bad_interrupt>
+   c:	0c 94 af 00 	jmp	0x15e	; 0x15e <__bad_interrupt>
+  10:	0c 94 af 00 	jmp	0x15e	; 0x15e <__bad_interrupt>
+  14:	0c 94 af 00 	jmp	0x15e	; 0x15e <__bad_interrupt>
+  18:	0c 94 af 00 	jmp	0x15e	; 0x15e <__bad_interrupt>
+  1c:	0c 94 af 00 	jmp	0x15e	; 0x15e <__bad_interrupt>
+  20:	0c 94 af 00 	jmp	0x15e	; 0x15e <__bad_interrupt>
+  24:	0c 94 af 00 	jmp	0x15e	; 0x15e <__bad_interrupt>
+  28:	0c 94 af 00 	jmp	0x15e	; 0x15e <__bad_interrupt>
+  2c:	0c 94 af 00 	jmp	0x15e	; 0x15e <__bad_interrupt>
+  30:	0c 94 af 00 	jmp	0x15e	; 0x15e <__bad_interrupt>
+  34:	0c 94 af 00 	jmp	0x15e	; 0x15e <__bad_interrupt>
+  38:	0c 94 af 00 	jmp	0x15e	; 0x15e <__bad_interrupt>
+  3c:	0c 94 af 00 	jmp	0x15e	; 0x15e <__bad_interrupt>
+  40:	0c 94 af 00 	jmp	0x15e	; 0x15e <__bad_interrupt>
+  44:	0c 94 af 00 	jmp	0x15e	; 0x15e <__bad_interrupt>
+  48:	0c 94 af 00 	jmp	0x15e	; 0x15e <__bad_interrupt>
+  4c:	0c 94 af 00 	jmp	0x15e	; 0x15e <__bad_interrupt>
+  50:	0c 94 af 00 	jmp	0x15e	; 0x15e <__bad_interrupt>
+
+00000054 <__ctors_end>:
+  54:	11 24       	eor	r1, r1
+  56:	1f be       	out	0x3f, r1	; 63
+  58:	cf e5       	ldi	r28, 0x5F	; 95
+  5a:	d8 e0       	ldi	r29, 0x08	; 8
+  5c:	de bf       	out	0x3e, r29	; 62
+  5e:	cd bf       	out	0x3d, r28	; 61
+  60:	0e 94 36 00 	call	0x6c	; 0x6c <_etext>
+  64:	0c 94 a4 00 	jmp	0x148	; 0x148 <exit>
+
+00000068 <_exit>:
+  68:	f8 94       	cli
+
+0000006a <__stop_program>:
+  6a:	ff cf       	rjmp	.-2      	; 0x6a <__stop_program>
+
+Disassembly of section .text:
+
+0000015e <__bad_interrupt>:
+ 15e:	0c 94 00 00 	jmp	0	; 0x0 <__TEXT_REGION_ORIGIN__>
+
+Disassembly of section .text.ADC_inti:
+
+0000012e <ADC_inti>:
+ *  Author: mohaned
+ */ 
+#include <avr/io.h>
+#include "../lib/BITMATH.h"
+void ADC_inti(){
+	SET_BIT(ADMUX,REFS0); // AVCC to AREF
+ 12e:	87 b1       	in	r24, 0x07	; 7
+ 130:	80 64       	ori	r24, 0x40	; 64
+ 132:	87 b9       	out	0x07, r24	; 7
+	SET_BIT(ADCSRA,ADPS0); // Choose prescalar
+ 134:	86 b1       	in	r24, 0x06	; 6
+ 136:	81 60       	ori	r24, 0x01	; 1
+ 138:	86 b9       	out	0x06, r24	; 6
+	SET_BIT(ADCSRA,ADPS1); // Choose prescalar
+ 13a:	86 b1       	in	r24, 0x06	; 6
+ 13c:	82 60       	ori	r24, 0x02	; 2
+ 13e:	86 b9       	out	0x06, r24	; 6
+	SET_BIT(ADCSRA,ADEN); //Enable ADC
+ 140:	86 b1       	in	r24, 0x06	; 6
+ 142:	80 68       	ori	r24, 0x80	; 128
+ 144:	86 b9       	out	0x06, r24	; 6
+ 146:	08 95       	ret
+
+Disassembly of section .text.ADC_read_10bit:
+
+00000112 <ADC_read_10bit>:
+	SET_BIT(ADCSRA,ADSC); // start conversion
+	while(GET_BIT(ADCSRA,ADSC)==1);
+	return ADCH;
+}
+uint16_t ADC_read_10bit(uint8_t ch){
+	ADMUX &= 0xE0;
+ 112:	97 b1       	in	r25, 0x07	; 7
+ 114:	90 7e       	andi	r25, 0xE0	; 224
+ 116:	97 b9       	out	0x07, r25	; 7
+	ADMUX |=ch; // Choose Channal
+ 118:	97 b1       	in	r25, 0x07	; 7
+ 11a:	89 2b       	or	r24, r25
+ 11c:	87 b9       	out	0x07, r24	; 7
+	SET_BIT(ADCSRA,ADSC); // start conversion
+ 11e:	86 b1       	in	r24, 0x06	; 6
+ 120:	80 64       	ori	r24, 0x40	; 64
+ 122:	86 b9       	out	0x06, r24	; 6
+	while(GET_BIT(ADCSRA,ADSC)==1);
+ 124:	36 99       	sbic	0x06, 6	; 6
+ 126:	fe cf       	rjmp	.-4      	; 0x124 <ADC_read_10bit+0x12>
+	return ADC;
+ 128:	84 b1       	in	r24, 0x04	; 4
+ 12a:	95 b1       	in	r25, 0x05	; 5
+ 12c:	08 95       	ret
+
+Disassembly of section .text.main:
+
+0000006c <main>:
+#include <util/delay.h>
+#include "ADC/ADC_func.h"
+#include "Lib/BITMATH.h"
+#define F_CPU 16000000UL
+int main(void)
+{   DDRA=0x00;
+  6c:	1a ba       	out	0x1a, r1	; 26
+	DDRC=0X0F;
+  6e:	8f e0       	ldi	r24, 0x0F	; 15
+  70:	84 bb       	out	0x14, r24	; 20
+	ADC_inti();
+  72:	0e 94 97 00 	call	0x12e	; 0x12e <ADC_inti>
+	uint16_t t;                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                     
+    while(1)
+    {
+		t=(ADC_read_10bit(0)*500)/1023;
+  76:	80 e0       	ldi	r24, 0x00	; 0
+  78:	0e 94 89 00 	call	0x112	; 0x112 <ADC_read_10bit>
+  7c:	24 ef       	ldi	r18, 0xF4	; 244
+  7e:	31 e0       	ldi	r19, 0x01	; 1
+  80:	ac 01       	movw	r20, r24
+  82:	42 9f       	mul	r20, r18
+  84:	c0 01       	movw	r24, r0
+  86:	43 9f       	mul	r20, r19
+  88:	90 0d       	add	r25, r0
+  8a:	52 9f       	mul	r21, r18
+  8c:	90 0d       	add	r25, r0
+  8e:	11 24       	eor	r1, r1
+  90:	6f ef       	ldi	r22, 0xFF	; 255
+  92:	73 e0       	ldi	r23, 0x03	; 3
+  94:	0e 94 75 00 	call	0xea	; 0xea <__udivmodhi4>
+  98:	cb 01       	movw	r24, r22
+      if (t<=30)
+  9a:	6f 31       	cpi	r22, 0x1F	; 31
+  9c:	71 05       	cpc	r23, r1
+  9e:	50 f4       	brcc	.+20     	; 0xb4 <main+0x48>
+      {
+		  SET_BIT(PORTC,0);
+  a0:	85 b3       	in	r24, 0x15	; 21
+  a2:	81 60       	ori	r24, 0x01	; 1
+  a4:	85 bb       	out	0x15, r24	; 21
+		  CLR_BIT(PORTC,1);
+  a6:	85 b3       	in	r24, 0x15	; 21
+  a8:	8d 7f       	andi	r24, 0xFD	; 253
+  aa:	85 bb       	out	0x15, r24	; 21
+		  CLR_BIT(PORTC,2);
+  ac:	85 b3       	in	r24, 0x15	; 21
+  ae:	8b 7f       	andi	r24, 0xFB	; 251
+  b0:	85 bb       	out	0x15, r24	; 21
+  b2:	e1 cf       	rjmp	.-62     	; 0x76 <main+0xa>
+		  
+      }
+	  else if ((t>=30)&(t<=35))
+  b4:	6e 51       	subi	r22, 0x1E	; 30
+  b6:	71 09       	sbc	r23, r1
+  b8:	66 30       	cpi	r22, 0x06	; 6
+  ba:	71 05       	cpc	r23, r1
+  bc:	50 f4       	brcc	.+20     	; 0xd2 <main+0x66>
+	  {
+		  SET_BIT(PORTC,1);
+  be:	85 b3       	in	r24, 0x15	; 21
+  c0:	82 60       	ori	r24, 0x02	; 2
+  c2:	85 bb       	out	0x15, r24	; 21
+		  CLR_BIT(PORTC,0);
+  c4:	85 b3       	in	r24, 0x15	; 21
+  c6:	8e 7f       	andi	r24, 0xFE	; 254
+  c8:	85 bb       	out	0x15, r24	; 21
+		  CLR_BIT(PORTC,2);
+  ca:	85 b3       	in	r24, 0x15	; 21
+  cc:	8b 7f       	andi	r24, 0xFB	; 251
+  ce:	85 bb       	out	0x15, r24	; 21
+  d0:	d2 cf       	rjmp	.-92     	; 0x76 <main+0xa>
+	  }
+	  else if (t>35)
+  d2:	84 97       	sbiw	r24, 0x24	; 36
+  d4:	80 f2       	brcs	.-96     	; 0x76 <main+0xa>
+	  {
+		  SET_BIT(PORTC,2);
+  d6:	85 b3       	in	r24, 0x15	; 21
+  d8:	84 60       	ori	r24, 0x04	; 4
+  da:	85 bb       	out	0x15, r24	; 21
+		  CLR_BIT(PORTC,1);
+  dc:	85 b3       	in	r24, 0x15	; 21
+  de:	8d 7f       	andi	r24, 0xFD	; 253
+  e0:	85 bb       	out	0x15, r24	; 21
+		  CLR_BIT(PORTC,0);
+  e2:	85 b3       	in	r24, 0x15	; 21
+  e4:	8e 7f       	andi	r24, 0xFE	; 254
+  e6:	85 bb       	out	0x15, r24	; 21
+  e8:	c6 cf       	rjmp	.-116    	; 0x76 <main+0xa>
+
+Disassembly of section .text.libgcc.div:
+
+000000ea <__udivmodhi4>:
+  ea:	aa 1b       	sub	r26, r26
+  ec:	bb 1b       	sub	r27, r27
+  ee:	51 e1       	ldi	r21, 0x11	; 17
+  f0:	07 c0       	rjmp	.+14     	; 0x100 <__udivmodhi4_ep>
+
+000000f2 <__udivmodhi4_loop>:
+  f2:	aa 1f       	adc	r26, r26
+  f4:	bb 1f       	adc	r27, r27
+  f6:	a6 17       	cp	r26, r22
+  f8:	b7 07       	cpc	r27, r23
+  fa:	10 f0       	brcs	.+4      	; 0x100 <__udivmodhi4_ep>
+  fc:	a6 1b       	sub	r26, r22
+  fe:	b7 0b       	sbc	r27, r23
+
+00000100 <__udivmodhi4_ep>:
+ 100:	88 1f       	adc	r24, r24
+ 102:	99 1f       	adc	r25, r25
+ 104:	5a 95       	dec	r21
+ 106:	a9 f7       	brne	.-22     	; 0xf2 <__udivmodhi4_loop>
+ 108:	80 95       	com	r24
+ 10a:	90 95       	com	r25
+ 10c:	bc 01       	movw	r22, r24
+ 10e:	cd 01       	movw	r24, r26
+ 110:	08 95       	ret
+
+Disassembly of section .text.__dummy_fini:
+
+00000166 <_fini>:
+ 166:	08 95       	ret
+
+Disassembly of section .text.__dummy_funcs_on_exit:
+
+00000168 <__funcs_on_exit>:
+ 168:	08 95       	ret
+
+Disassembly of section .text.__dummy_simulator_exit:
+
+0000016a <__simulator_exit>:
+ 16a:	08 95       	ret
+
+Disassembly of section .text.exit:
+
+00000148 <exit>:
+ 148:	ec 01       	movw	r28, r24
+ 14a:	0e 94 b4 00 	call	0x168	; 0x168 <__funcs_on_exit>
+ 14e:	0e 94 b3 00 	call	0x166	; 0x166 <_fini>
+ 152:	ce 01       	movw	r24, r28
+ 154:	0e 94 b5 00 	call	0x16a	; 0x16a <__simulator_exit>
+ 158:	ce 01       	movw	r24, r28
+ 15a:	0e 94 b1 00 	call	0x162	; 0x162 <_Exit>
+
+Disassembly of section .text._Exit:
+
+00000162 <_Exit>:
+ 162:	0e 94 34 00 	call	0x68	; 0x68 <_exit>
